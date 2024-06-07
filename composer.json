@@ -1,0 +1,42 @@
+{
+    "name": "qbcloud/laravel-geoip2",
+    "description": "Query the geographical location by IP address.",
+    "keywords": [
+        "laravel",
+        "geoip",
+        "ip",
+        "location"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "YQB520",
+            "email": "604753396@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "geoip2/geoip2": "^2.13",
+        "illuminate/support": "^7|^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "QbCloud\\Geoip2\\": "src/"
+        }
+    },
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "QbCloud\\Geoip2\\Providers\\GeoipServiceProvider"
+            ],
+            "aliases": {
+                "IPQuery": "QbCloud\\Geoip2\\Facades\\IPQuery"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
