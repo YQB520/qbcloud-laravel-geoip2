@@ -18,7 +18,7 @@
     "require": {
         "php": ">=7.2.5",
         "geoip2/geoip2": "^2.13",
-        "illuminate/support": "^7|^8"
+        "illuminate/support": "^5.2|^6|^7|^8"
     },
     "autoload": {
         "psr-4": {
