@@ -1,30 +1,18 @@
 ## 主要用途
-使用Laravel 6.x 以上通过Geoip2的GeoLite2 City、GeoLite2 Country、GeoLite2 ASN查询IP信息。
+使用Laravel 6.x 以上通过Geoip2的GeoLite2 City、GeoLite2 ASN查询IP信息。
 
-### 下载 GeoIP Databases 文件
+## 下载 GeoIP Databases 文件
 PS：需要注册官方账号\
-[https://www.maxmind.com/en/accounts/692132/geoip/downloads](https://www.maxmind.com/en/accounts/692132/geoip/downloads)
+[https://www.maxmind.com/en/accounts/692132/geoip/downloads](https://www.maxmind.com/en/accounts/692132/geoip/downloads) \
+
+## 文件放置路径
+``` bash
+storage/app/geoip
+```
 
 ## 用法
 ``` bash
 composer require qbcloud/laravel-geoip2
-```
-
-发布配置文件：
-``` bash
-php artisan vendor:publish --provider="QbCloud\Geoip2\Providers\GeoipServiceProvider"
-```
-
-```php
-// config/geoip2.php
-
-return [
-    'lang' => 'zh-CN', // zh-CN en ru pt-BR ja fr es de
-    'db_type' => 'city', // city country asn  db_type===city则db_path_city必填  db_type===country则db_path_country必填
-    'db_path_city' => 'geoip2/GeoLite2-City.mmdb', // 以 storage_path() 为根目录
-    'db_path_country' => 'geoip2/GeoLite2-Country.mmdb', // 以 storage_path() 为根目录
-    'db_path_asn' => 'geoip2/GeoLite2-ASN.mmdb' // 以 storage_path() 为根目录
-];
 ```
 
 ```php
@@ -32,6 +20,16 @@ use QbCloud\Geoip2\Facades\IPQuery;
 
 // 查询 ipv4 或者 ipv6
 IPQuery::connect('x.x.x.x');
+
+// 格式化地址
+IPQuery::format(['中国', '广东', '广东']); // 中国-广东
+IPQuery::format(['中国', '广东', '广州']); // 中国-广东-广州
+
+// 查询IP类型
+IPQuery::ipType('x.x.x.x'); // IPv4
+
+// 查询是否是有效IP
+IPQuery::isValid('x.x.x.x'); // false
 
 // 或者
 use QbCloud\Geoip2\IPQuery;
