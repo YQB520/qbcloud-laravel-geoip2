@@ -26,10 +26,5 @@ class GeoipServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $path = realpath(__DIR__ . '/../../config/geoip2.php');
-
-        $this->publishes([$path => config_path('geoip2.php')], 'config');
-
-        $this->mergeConfigFrom($path, 'geoip2');
     }
 }
