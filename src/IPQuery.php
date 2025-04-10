@@ -51,7 +51,7 @@ class IPQuery
         self::$defaultLocation['type'] = self::ipType($ip);
         self::$defaultLocation['address'] = self::$defaultLocation['type'];
 
-        if (!in_array(self::$defaultLocation['type'], ['IPv4', 'IPv6'])) {
+        if (!self::isValid($ip)) {
             Cache::add($cacheKey, self::$defaultLocation, 60 * 60 * self::$ttl);
 
             return self::$defaultLocation;

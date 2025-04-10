@@ -3,7 +3,7 @@
 
 ## 下载 GeoIP Databases 文件
 PS：需要注册官方账号\
-[https://www.maxmind.com/en/accounts/692132/geoip/downloads](https://www.maxmind.com/en/accounts/692132/geoip/downloads) \
+[https://www.maxmind.com/en/accounts/692132/geoip/downloads](https://www.maxmind.com/en/accounts/692132/geoip/downloads) 
 
 ## 文件放置路径
 ``` bash
